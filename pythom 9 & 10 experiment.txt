@@ -1,0 +1,49 @@
+1. Display lines starting with a specific keyword
+keyword = "Error"
+with open("sample.txt", "r") as file:
+    for line in file:
+        if line.startswith(keyword):
+            print(line.strip())
+
+
+2. Print file content in reverse order
+with open("sample.txt", "r") as file:
+    lines = file.readlines()
+    for line in reversed(lines):
+        print(line.strip())
+
+
+3. Read a CSV file and display its contents in tabular format
+import csv
+from tabulate import tabulate
+
+with open("data.csv", newline='') as file:
+    reader = csv.reader(file)
+    table = list(reader)
+    print(tabulate(table[1:], headers=table[0], tablefmt="grid"))
+
+
+4. Search for a specific word in a file and display lines containing it
+search_word = "network"
+with open("sample.txt", "r") as file:
+    for line in file:
+        if search_word in line:
+            print(line.strip())
+
+
+5. Count occurrences of a specific word in a file
+word_to_count = "data"
+count = 0
+
+with open("sample.txt", "r") as file:
+    for line in file:
+        count += line.lower().count(word_to_count.lower())
+
+print(f"Occurrences of '{word_to_count}':", count)
+
+
+6. Find the longest word in a file
+with open("sample.txt", "r") as file:
+    words = file.read().split()
+    longest_word = max(words, key=len)
+    print("Longest word:", longest_word)
