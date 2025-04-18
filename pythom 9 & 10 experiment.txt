@@ -13,16 +13,6 @@ with open("sample.txt", "r") as file:
         print(line.strip())
 
 
-3. Read a CSV file and display its contents in tabular format
-import csv
-from tabulate import tabulate
-
-with open("data.csv", newline='') as file:
-    reader = csv.reader(file)
-    table = list(reader)
-    print(tabulate(table[1:], headers=table[0], tablefmt="grid"))
-
-
 4. Search for a specific word in a file and display lines containing it
 search_word = "network"
 with open("sample.txt", "r") as file:
